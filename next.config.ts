@@ -5,6 +5,14 @@ const nextConfig: NextConfig = {
   experimental: {
     fallbackNodePolyfills: false,
   },
+  images:{
+    remotePatterns:[
+      {
+        protocol:'https',
+        hostname: '**.iconfinder.com'
+      }
+    ]
+  }
 }
 
 export default nextConfig
