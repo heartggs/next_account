@@ -1,16 +1,21 @@
-import { Suspense, ComponentType, ReactNode } from 'react'
+'use client'
+import React, { Suspense, ComponentType, ReactNode, ReactElement } from 'react'
 
-function withSusepnse<Props = Record<string, never>>(
-  WrappedComponent: ComponentType<Props>,
+function withSuspense<P extends {}>(
+  WrappedComponent: ComponentType<P>,
   options: { fallback: ReactNode },
-) {
-  return function SuspendedComponent(props: Props) {
+): (props: P) => ReactElement {
+  const SuspendedComponent = (props: P): ReactElement => {
     return (
       <Suspense fallback={options.fallback}>
-        <WrappedComponent {...(props as any)} />
+        {React.createElement(WrappedComponent as ComponentType<P>, props)}
       </Suspense>
     )
   }
+
+  SuspendedComponent.displayName = `withSuspense(${WrappedComponent.displayName || WrappedComponent.name || 'Component'})`
+
+  return SuspendedComponent
 }
 
-export default withSusepnse
+export default withSuspense
