@@ -1,12 +1,12 @@
 import { css } from '@emotion/react'
-import Link from 'next/link'
-import Image from 'next/image'
-import { useCallback } from 'react'
+// import Link from 'next/link'
+// import Image from 'next/image'
+// import { useCallback } from 'react'
 // import { useSession } from 'next-auth/react'
-import { useRouter } from 'next/router'
+// import { useRouter } from 'next/router'
 
-import Flex from '@shared/Flex'
-import Button from '@shared/Button'
+// import Flex from '@shared/Flex'
+// import Button from '@shared/Button'
 import { colors } from '@styles/colorPalette'
 
 function Navbar() {

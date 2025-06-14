@@ -1,7 +1,7 @@
 'use client'
 import React, { Suspense, ComponentType, ReactNode, ReactElement } from 'react'
 
-function withSuspense<P extends {}>(
+function withSuspense<P extends object>(
   WrappedComponent: ComponentType<P>,
   options: { fallback: ReactNode },
 ): (props: P) => ReactElement {
